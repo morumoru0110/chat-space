@@ -7,17 +7,15 @@
 |name|string|null: false|
 ### Association
 - has_many :posts
-- has_many :comments
+- has_many :messages
+- has_many :groups
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group|text|null: false|
-|member|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 ### Association
-- belongs_to :user
-- has_many :comments
+- has_many :messages
 
 ## user_groupsテーブル
 |Column|Type|Options|
@@ -32,8 +30,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
+|image|text||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :post
 - belongs_to :user
+- has_many :group
