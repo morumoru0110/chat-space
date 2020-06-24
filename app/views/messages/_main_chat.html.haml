@@ -1,0 +1,33 @@
+.MainChat
+  .MainChat__Header
+    .MainChatHeader__Group 
+      .MainChatHeader__GroupName test
+      %ul.MainChatHeader__MemberList Member: masa
+      
+    .MainChat__EditBtn
+      = link_to "#", class:"EditBtn__text" do
+        Edit
+
+  .MainChat__MessageField
+    .MessageField__MessageBox
+      .MessageField__MessageInfo
+        .MessageField__MessageInfo__UserName masa
+        .MessageField__MessageInfo__Date 2019/11/20(Wed) 17:43:01
+      .MessageField__Message
+        %p.Message__Content おはよう！
+
+    .MessageField__MessageBox
+      .MessageField__MessageInfo
+        .MessageField__MessageInfo__UserName masa
+        .MessageField__MessageInfo__Date 2019/11/20(Wed) 17:43:34
+      .MessageField__Message
+        %p.Message__Content 今日は夜から雨
+
+  .Footer
+    %form.Form__Contents
+      .input
+        %input.input__text{"placeholder": "type a message", "type": "text"}
+        %label{class: "input__image"}
+          = icon('fas', 'image' )
+          %input.File{"type": "file"}
+      %input.Form__SendBtn{"type": "submit","value": "Send"}
