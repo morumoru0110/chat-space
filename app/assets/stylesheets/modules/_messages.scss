@@ -68,25 +68,27 @@
     display: flex;
     justify-content: space-between;
 
-    .MainChatHeader__Group {
-      margin-top: 35px;
-      
-      
-    }
-      .MainChatHeader__GroupName {
-        margin-bottom: 15px;
-        color: #333333;
-        font-size: 20px;
+    .MainChatHeader {
+      &__Group {
+        margin-top: 35px;
       }
-      .MainChatHeader__MemberList{
-        font-size: 12px;
-        color:#999999;
-        display:flex;
-        .MainChatHeader__MemberList__name{
+        &__GroupName {
+          margin-bottom: 15px;
+          color: #333333;
+          font-size: 20px;
+        }
+        &__MemberList{
           font-size: 12px;
           color:#999999;
+          display:flex;
+          &__MemberList__name{
+            font-size: 12px;
+            color:#999999;
+          }
         }
-      }
+    }
+
+
 
     .MainChat__EditBtn {
       width: 72px;
