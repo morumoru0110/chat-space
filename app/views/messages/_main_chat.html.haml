@@ -1,33 +1,24 @@
 .MainChat
   .MainChat__Header
     .MainChatHeader__Group 
-      .MainChatHeader__GroupName test
-      %ul.MainChatHeader__MemberList Member: masa
-      
+      .MainChatHeader__GroupName
+        = @group.name
+      %ul.MainChatHeader__MemberList 
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .MainChat__EditBtn
-      = link_to "#", class:"EditBtn__text" do
+      = link_to edit_group_path(@group), class:"EditBtn__text" do
         Edit
 
   .MainChat__MessageField
-    .MessageField__MessageBox
-      .MessageField__MessageInfo
-        .MessageField__MessageInfo__UserName masa
-        .MessageField__MessageInfo__Date 2019/11/20(Wed) 17:43:01
-      .MessageField__Message
-        %p.Message__Content おはよう！
-
-    .MessageField__MessageBox
-      .MessageField__MessageInfo
-        .MessageField__MessageInfo__UserName masa
-        .MessageField__MessageInfo__Date 2019/11/20(Wed) 17:43:34
-      .MessageField__Message
-        %p.Message__Content 今日は夜から雨
-
+    = render @messages
+  
   .Footer
-    %form.Form__Contents
+    = form_with model: [@group, @message], html: {class: "Form__Contents"}, local: true do |f|
       .input
-        %input.input__text{"placeholder": "type a message", "type": "text"}
-        %label{class: "input__image"}
-          = icon('fas', 'image' )
-          %input.File{"type": "file"}
-      %input.Form__SendBtn{"type": "submit","value": "Send"}
+        = f.text_field :content, class: 'input__text', placeholder: 'type a message'
+        = f.label :image, class: 'input__image' do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'File'
+      = f.submit 'Send', class: 'Form__SendBtn'

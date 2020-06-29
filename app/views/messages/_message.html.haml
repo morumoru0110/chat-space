@@ -1,0 +1,23 @@
+.MessageField__MessageBox
+  .MessageField__MessageInfo
+    .MessageField__MessageInfo__userName
+      = message.user.name
+    .MessageField__MessageInfo__Date 
+      = message.created_at.strfttime("%Y年%m月%d日 %H時%M分")
+  .MessageField__Message
+    - if message.content.present?
+      %p.Message__Content
+        = .message.content
+    = image_tag message.image.url, class: 'Message__image' if message.image.present?
+
+.MessageField__MessageBox
+  .MessageField__MessageInfo
+    .MessageField__MessageInfo__UserName 
+      = message.user.name
+    .MessageField__MessageInfo__Date
+      = message.created_at.strfttime("%Y年%m月%d日 %H時%M分")
+  .MessageField__Message
+    - if message.content.present?
+      %p.Message__Content
+        = .message.content
+    = image_tag message.image.url, class: 'Message__image' if message.image.present?
