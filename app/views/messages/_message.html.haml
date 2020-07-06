@@ -10,7 +10,7 @@
         = message.content
     = image_tag message.image.url, class: 'Message__image' if message.image.present?
 
-.MessageField__MessageBox
+.MessageField__MessageBox{data: {message: {id: message.id}}}
   .MessageField__MessageInfo
     .MessageField__MessageInfo__UserName 
       = message.user.name
